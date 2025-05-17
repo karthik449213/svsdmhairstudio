@@ -33,15 +33,15 @@ This project is set up for separate deployment of frontend and backend:
 1. Connect your GitHub repository to Netlify
 2. Use the following build settings:
    - Build command: `npm run build`
-   - Publish directory: `client/dist`
+   - Publish directory: `dist`
 3. Add the following environment variables:
-   - `VITE_API_URL`: Your backend API URL (e.g., https://your-api.onrender.com)
+   - `VITE_API_URL`: Your backend API URL (e.g., https://luxe-salon-api.onrender.com)
 
-4. Update the redirect in `netlify.toml` to point to your actual backend URL:
+4. The `netlify.toml` file is already configured with the redirect rule. Just update the backend URL if needed:
    ```toml
    [[redirects]]
      from = "/api/*"
-     to = "https://your-backend-url.onrender.com/api/:splat"
+     to = "https://luxe-salon-api.onrender.com/api/:splat"
      status = 200
      force = true
    ```
@@ -50,12 +50,12 @@ This project is set up for separate deployment of frontend and backend:
 
 1. Create a new Web Service on Render
 2. Connect your GitHub repository
-3. Use the following settings:
-   - Build Command: `npm install && npm run build`
-   - Start Command: `node dist/index.js`
-4. Add the following environment variables:
-   - `NODE_ENV`: `production`
-   - `ALLOWED_ORIGINS`: Comma-separated list of allowed origins (e.g., `https://your-site.netlify.app,http://localhost:5000`)
+3. Use the provided `render.yaml` configuration file which sets:
+   - Build Command: `npm install`
+   - Start Command: `npm run dev`
+   - Environment variables:
+     - `NODE_ENV`: `production`
+     - `ALLOWED_ORIGINS`: `https://luxe-salon.netlify.app,http://localhost:5000`
 
 ## Project Structure
 

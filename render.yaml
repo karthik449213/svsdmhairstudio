@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: luxe-salon-api
+    env: node
+    buildCommand: npm install
+    startCommand: npm run dev
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: ALLOWED_ORIGINS
+        value: https://luxe-salon.netlify.app,http://localhost:5000
