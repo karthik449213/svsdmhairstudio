@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Base Colors */
+  --background: 36 33% 97%;  /* off-white */
+  --foreground: 210 11% 20%; /* charcoal */
+  
+  /* Primary: Deep Teal */
+  --primary: 200 55% 31%;
+  --primary-foreground: 36 33% 97%;
+  
+  /* Secondary: Soft Beige */
+  --secondary: 39 59% 88%;
+  --secondary-foreground: 210 11% 20%;
+  
+  /* Accent: Gold */
+  --accent: 46 57% 53%;
+  --accent-foreground: 210 11% 20%;
+  
+  /* UI Colors */
+  --muted: 39 20% 95%;
+  --muted-foreground: 210 11% 45%;
+  
+  --card: 0 0% 100%;
+  --card-foreground: 210 11% 20%;
+  
+  --popover: 0 0% 100%;
+  --popover-foreground: 210 11% 20%;
+  
+  --border: 210 11% 90%;
+  --input: 210 11% 90%;
+  
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 210 11% 98%;
+  
+  --ring: 200 55% 31%;
+  
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: 210 11% 15%;
+  --foreground: 36 33% 97%;
+  
+  --primary: 200 55% 31%;
+  --primary-foreground: 36 33% 97%;
+  
+  --secondary: 39 59% 88%;
+  --secondary-foreground: 210 11% 20%;
+  
+  --accent: 46 57% 53%;
+  --accent-foreground: 210 11% 20%;
+  
+  --muted: 210 11% 25%;
+  --muted-foreground: 36 33% 85%;
+  
+  --card: 210 11% 20%;
+  --card-foreground: 36 33% 97%;
+  
+  --popover: 210 11% 20%;
+  --popover-foreground: 36 33% 97%;
+  
+  --border: 210 11% 30%;
+  --input: 210 11% 30%;
+  
+  --destructive: 0 62% 30%;
+  --destructive-foreground: 36 33% 97%;
+  
+  --ring: 200 55% 50%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer utilities {
+  .animation-delay-200 {
+    animation-delay: 0.2s;
+  }
+  .animation-delay-400 {
+    animation-delay: 0.4s;
+  }
+}
+
+/* Custom animations */
+.slide-in {
+  @apply opacity-0 translate-y-8;
+  animation: slideIn 0.8s ease forwards;
+}
+
+.fade-in {
+  @apply opacity-0;
+  animation: fadeIn 1s ease forwards;
+}
+
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
