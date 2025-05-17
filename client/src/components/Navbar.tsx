@@ -26,11 +26,11 @@ const Navbar = ({ compact = false }: NavbarProps) => {
     >
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center">
-          <Link href="/">
-            <a className="text-2xl md:text-3xl font-playfair font-bold text-primary">
+          <div className="text-2xl md:text-3xl font-playfair font-bold text-primary">
+            <Link href="/">
               <span className="text-accent">Luxe</span> Salon
-            </a>
-          </Link>
+            </Link>
+          </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8">
@@ -94,25 +94,21 @@ interface NavLinkProps {
 }
 
 const NavLink = ({ href, active, children }: NavLinkProps) => (
-  <Link href={href}>
-    <a className={cn(
-      "font-montserrat transition-colors duration-300",
-      active ? "text-primary font-medium" : "text-foreground hover:text-primary"
-    )}>
-      {children}
-    </a>
-  </Link>
+  <div className={cn(
+    "font-montserrat transition-colors duration-300",
+    active ? "text-primary font-medium" : "text-foreground hover:text-primary"
+  )}>
+    <Link href={href}>{children}</Link>
+  </div>
 );
 
 const MobileNavLink = ({ href, active, children }: NavLinkProps) => (
-  <Link href={href}>
-    <a className={cn(
-      "font-montserrat py-2 transition-colors duration-300",
-      active ? "text-primary font-medium" : "text-foreground hover:text-primary"
-    )}>
-      {children}
-    </a>
-  </Link>
+  <div className={cn(
+    "font-montserrat py-2 transition-colors duration-300",
+    active ? "text-primary font-medium" : "text-foreground hover:text-primary"
+  )}>
+    <Link href={href}>{children}</Link>
+  </div>
 );
 
 export default Navbar;

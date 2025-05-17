@@ -190,11 +190,20 @@ export class MemStorage implements IStorage {
   async createBooking(booking: InsertBooking): Promise<Booking> {
     const id = this.bookingId++;
     const now = new Date();
-    const newBooking = { 
-      ...booking, 
-      id, 
+    
+    // Create a properly typed booking object
+    const newBooking: Booking = {
+      id,
+      name: booking.name,
+      phone: booking.phone,
+      service: booking.service,
+      date: booking.date,
+      time: booking.time,
+      email: booking.email || null,
+      message: booking.message || null,
       createdAt: now
     };
+    
     this.bookings.set(id, newBooking);
     return newBooking;
   }
@@ -203,11 +212,16 @@ export class MemStorage implements IStorage {
   async submitContact(contact: InsertContact): Promise<Contact> {
     const id = this.contactId++;
     const now = new Date();
-    const newContact = { 
-      ...contact, 
-      id, 
+    
+    const newContact: Contact = {
+      id,
+      name: contact.name,
+      email: contact.email,
+      phone: contact.phone,
+      message: contact.message,
       createdAt: now
     };
+    
     this.contacts.set(id, newContact);
     return newContact;
   }
@@ -216,12 +230,17 @@ export class MemStorage implements IStorage {
   async submitFeedback(feedback: InsertFeedback): Promise<Feedback> {
     const id = this.feedbackId++;
     const now = new Date();
-    const newFeedback = { 
-      ...feedback, 
-      id, 
+    
+    const newFeedback: Feedback = {
+      id,
+      rating: feedback.rating,
+      comments: feedback.comments,
+      name: feedback.name || null,
+      email: feedback.email || null,
       createdAt: now,
       approved: false
     };
+    
     this.feedback.set(id, newFeedback);
     return newFeedback;
   }
