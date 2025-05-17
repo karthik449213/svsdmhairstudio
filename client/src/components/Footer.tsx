@@ -81,9 +81,9 @@ interface FooterLinkProps {
 }
 
 const FooterLink = ({ href, children }: FooterLinkProps) => (
-  <Link href={href}>
-    <a className="text-gray-300 hover:text-accent transition-colors duration-300">{children}</a>
-  </Link>
+  <div className="text-gray-300 hover:text-accent transition-colors duration-300">
+    <Link href={href}>{children}</Link>
+  </div>
 );
 
 export default Footer;
